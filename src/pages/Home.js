@@ -1,6 +1,7 @@
 import React from "react";
 import AnimatedSection from "../components/AnimatedSection";
 import { motion } from "framer-motion";
+import './Home.css'; 
 
 function Home({ scrollToProjects }) {
   return (
@@ -21,13 +22,13 @@ function Home({ scrollToProjects }) {
             transition={{ duration: 0.8 }}
           />
 
-          <div className="hero-content">
-            <h2>Bienvenue sur mon portfolio</h2>
-            <p>
-              Je conçois des applications web, mobile et desktop personnalisées pour optimiser la gestion de votre activité.
-              </p>
-            
-          </div>
+         <div className="hero-content">
+          <h2>Bienvenue sur mon portfolio !</h2>
+          <p>
+            Je suis Gabriel Andriamahafaly, développeur spécialisé en <strong>Laravel</strong> et <strong>React</strong>.<br />
+            Ce site vous permettra d’en savoir un peu plus sur moi et mes projets. <strong>Enjoy !</strong>
+          </p>
+        </div>
         </section>
       </AnimatedSection>
     </div>

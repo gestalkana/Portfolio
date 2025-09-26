@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AnimatedSection from "../components/AnimatedSection";
-import "./Contact.css"; // si tu veux séparer le style
+import "./Contact.css";
+import emailjs from '@emailjs/browser';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -21,23 +22,32 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validation simple
     if (!formData.name || !formData.email || !formData.message) {
       alert("Merci de remplir tous les champs.");
       return;
     }
 
-    // Email regex simple
     const emailRegex = /\S+@\S+\.\S+/;
     if (!emailRegex.test(formData.email)) {
       alert("Adresse email invalide.");
       return;
     }
 
-    // Simule l’envoi (tu pourras le connecter à Formspree ou autre)
-    console.log("Formulaire envoyé :", formData);
-    setSubmitted(true);
-    setFormData({ name: "", email: "", message: "" });
+    // Envoi via EmailJS
+    emailjs.send(
+      'service_q50hs1m',       // Remplace par ton Service ID
+      'template_qciwzn8',      // Remplace par ton Template ID
+      formData,                // Les données du formulaire envoyées à EmailJS
+      'K6hlk5U7Z1Ugljm0l'        // Remplace par ta Public Key (User ID)
+    )
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+      setSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+    }, (err) => {
+      console.log('FAILED...', err);
+      alert("Une erreur est survenue, veuillez réessayer.");
+    });
   };
 
   return (
