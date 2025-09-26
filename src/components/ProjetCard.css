@@ -1,3 +1,4 @@
+/* Projet Card */
 .projet-card {
   background-color: #161b22;
   border-radius: 12px;
@@ -5,24 +6,33 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  max-width: 350px;
+  max-width: 300px;
   color: #c9d1d9;
   margin: 1rem;
   user-select: none;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  padding: 1rem;
 }
 
 .projet-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(21, 25, 31, 0.6);
 }
 
+/* Image */
 .projet-image {
   width: 100%;
   height: 180px;
   object-fit: cover;
   background-color: #0d1117;
+  transition: filter 0.3s ease;
 }
 
+.projet-card:hover .projet-image {
+  filter: brightness(1.05);
+}
+
+/* Content */
 .projet-content {
   padding: 1rem;
   flex-grow: 1;
@@ -30,8 +40,15 @@
 
 .projet-content h3 {
   margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
 }
 
+.projet-content p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Footer */
 .projet-footer {
   display: flex;
   justify-content: space-between;
@@ -40,15 +57,24 @@
   background-color: #0d1117;
 }
 
+/* Buttons */
 .btn {
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 25px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   text-decoration: none;
   color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 
 .btn-repo {
@@ -67,35 +93,65 @@
   background-color: #4095f5;
 }
 
-/* Galerie overlay */
+/* Bouton small */
+.btn-small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  gap: 0.3rem;
+}
 
+/* Responsive : adapter la taille sur petits écrans */
+@media (max-width: 600px) {
+  .btn-small {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Galerie Overlay */
 .gallery-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(13, 17, 23, 0.9);
+  inset: 0;
+  background: rgba(13, 17, 23, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  padding: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(3px);
 }
 
 .gallery-content {
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 80vh;
   overflow-x: auto;
   display: flex;
   gap: 1rem;
   border-radius: 10px;
+  padding: 1rem;
+  background-color: #0d1117;
 }
 
 .gallery-image {
-  max-height: 80vh;
+  max-height: 70vh;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(21, 25, 31, 0.8);
   user-select: none;
   pointer-events: none;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .gallery-content {
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+  }
+
+  .gallery-image {
+    max-width: 90vw;
+    max-height: 60vh;
+  }
 }
