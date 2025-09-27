@@ -1,157 +1,135 @@
-/* Projet Card */
 .projet-card {
-  background-color: #161b22;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(21, 25, 31, 0.4);
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  width: 320px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  max-width: 300px;
-  color: #c9d1d9;
-  margin: 1rem;
-  user-select: none;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
-  padding: 1rem;
+  padding: 1px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .projet-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(21, 25, 31, 0.6);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-/* Image */
+.projet-image-wrapper {
+  height: 180px;
+  overflow: hidden;
+}
+
 .projet-image {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
-  background-color: #0d1117;
-  transition: filter 0.3s ease;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
 .projet-card:hover .projet-image {
-  filter: brightness(1.05);
+  transform: scale(1.05);
 }
 
-/* Content */
 .projet-content {
   padding: 1rem;
-  flex-grow: 1;
+  color: #fff;
 }
 
 .projet-content h3 {
   margin: 0 0 0.5rem 0;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
 }
 
 .projet-content p {
   font-size: 0.95rem;
+  opacity: 0.85;
   line-height: 1.4;
 }
 
-/* Footer */
 .projet-footer {
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 1rem;
-  border-top: 1px solid #30363d;
-  background-color: #0d1117;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Buttons */
 .btn {
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-decoration: none;
-  color: white;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  background-color: #222;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  background-color: #444;
 }
 
-.btn-repo {
-  background-color: #238636;
-}
-
-.btn-repo:hover {
-  background-color: #2ea043;
-}
-
-.btn-view {
-  background-color: #58a6ff;
-}
-
-.btn-view:hover {
-  background-color: #4095f5;
-}
-
-/* Bouton small */
-.btn-small {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.85rem;
-  border-radius: 20px;
-  gap: 0.3rem;
-}
-
-/* Responsive : adapter la taille sur petits écrans */
-@media (max-width: 600px) {
-  .btn-small {
-    padding: 0.2rem 0.4rem;
-    font-size: 0.75rem;
-  }
-}
-
-/* Galerie Overlay */
 .gallery-overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(13, 17, 23, 0.95);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 10, 0.9);
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 9999;
+  justify-content: center;
+  z-index: 999;
+  backdrop-filter: blur(6px);
   padding: 2rem;
-  backdrop-filter: blur(3px);
 }
 
 .gallery-content {
-  max-width: 90vw;
-  max-height: 80vh;
-  overflow-x: auto;
+  max-width: 90%;
+  max-height: 90%;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  border-radius: 10px;
+  justify-content: center;
+  overflow-y: auto;
   padding: 1rem;
-  background-color: #0d1117;
+  background-color: #111;
+  border-radius: 10px;
 }
 
 .gallery-image {
-  max-height: 70vh;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(21, 25, 31, 0.8);
-  user-select: none;
-  pointer-events: none;
-  object-fit: contain;
+  max-width: 300px;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  transition: transform 0.3s;
+}
+
+.gallery-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .projet-card {
+    width: 90%;
+    margin: auto;
+  }
+
   .gallery-content {
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;
   }
 
   .gallery-image {
-    max-width: 90vw;
-    max-height: 60vh;
+    width: 100%;
+    max-width: 90%;
   }
 }
