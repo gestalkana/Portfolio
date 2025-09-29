@@ -21,7 +21,7 @@ function ProjetCard({ projet, onToggleModal }) {
       <div className="h-[180px] overflow-hidden">
         <img
           src={projet.image}
-          alt={`Image principale du projet ${projet.title}`}
+          alt={`Aperçu de projet ${projet.title}`}
           className="w-full h-full object-cover transition-transform duration-400 hover:scale-105"
           loading="lazy"
         />
