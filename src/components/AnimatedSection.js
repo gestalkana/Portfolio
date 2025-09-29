@@ -7,6 +7,8 @@ export default function AnimatedSection({ children }) {
   const ref = useRef(null);
 
   useEffect(() => {
+    const node = ref.current; // ✅ on copie la valeur de ref ici
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -16,10 +18,10 @@ export default function AnimatedSection({ children }) {
       { threshold: 0.3 }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    if (node) observer.observe(node);
 
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      if (node) observer.unobserve(node); // ✅ on utilise node ici, pas ref.current
     };
   }, [controls]);
 
