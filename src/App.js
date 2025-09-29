@@ -8,27 +8,26 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 
-import "./App.css";
-
-import { FormspreeProvider } from '@formspree/react';
-
-<FormspreeProvider project="">
-  <App />
-</FormspreeProvider>
+// Suppression de l'ancien App.css (on utilise Tailwind maintenant)
+ import "./App.css";
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#0d1117] to-[#161b22] text-[#c9d1d9] font-sans">
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projet" element={<Projects />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      
-       <Footer />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/projet" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
     </Router>
   );
 }

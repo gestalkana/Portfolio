@@ -1,7 +1,4 @@
-// src/components/Footer.js
-
 import React from "react";
-import "./Footer.css";
 import {
   FaGithub,
   FaLinkedin,
@@ -12,30 +9,40 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-grid">
+    <footer className="bg-[#161b22] text-[#c9d1d9] py-8 px-6 sm:px-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        
         {/* Contact */}
-        <div className="footer-section">
-          <h4>Contact</h4>
-          <div className="contact-inline">
-            <a href="mailto:gestalkana@gmail.com" title="Envoyer un e-mail">
+        <div>
+          <h4 className="text-[#58a6ff] text-lg font-semibold mb-4">Contact</h4>
+          <div className="flex flex-col space-y-2 text-sm sm:text-base">
+            <a
+              href="mailto:gestalkana@gmail.com"
+              title="Envoyer un e-mail"
+              className="flex items-center gap-2 hover:text-[#58a6ff] transition-colors"
+            >
               <FaEnvelope /> gestalkana@gmail.com
             </a>
-            <a href="tel:+261344879509" title="Appeler">
+            <a
+              href="tel:+261344879509"
+              title="Appeler"
+              className="flex items-center gap-2 hover:text-[#58a6ff] transition-colors"
+            >
               <FaPhoneAlt /> +261 34 48 795 09
             </a>
           </div>
         </div>
 
         {/* Réseaux sociaux */}
-        <div className="footer-section">
-          <h4>Réseaux</h4>
-          <div className="social-links">
+        <div>
+          <h4 className="text-[#58a6ff] text-lg font-semibold mb-4">Réseaux</h4>
+          <div className="flex space-x-6 text-2xl text-[#8b949e]">
             <a
               href="https://github.com/gestalkana"
               target="_blank"
               rel="noopener noreferrer"
               title="GitHub"
+              className="hover:text-[#58a6ff] transition-colors"
             >
               <FaGithub />
             </a>
@@ -44,6 +51,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               title="LinkedIn"
+              className="hover:text-[#58a6ff] transition-colors"
             >
               <FaLinkedin />
             </a>
@@ -52,6 +60,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               title="Discord"
+              className="hover:text-[#58a6ff] transition-colors"
             >
               <FaDiscord />
             </a>
@@ -59,15 +68,16 @@ const Footer = () => {
         </div>
 
         {/* Signature */}
-        <div className="footer-section">
-          <h4>Portfolio</h4>
-          <p>
+        <div className="text-sm sm:text-base">
+          <h4 className="text-[#58a6ff] text-lg font-semibold mb-4">Portfolio</h4>
+          <p className="mb-1">
             Développé par <strong>Gabriel Andriamahafaly</strong>
           </p>
-          <p className="footer-copy">
+          <p className="text-[#8b949e] text-xs sm:text-sm">
             © {new Date().getFullYear()} Tous droits réservés.
           </p>
         </div>
+
       </div>
     </footer>
   );
