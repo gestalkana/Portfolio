@@ -27,6 +27,14 @@ const projets = [
     image: "/images/GV/photo-1.png",
     screenshots: ["/images/GV/photo-1.png", "/images/GV/photo-2.png", "/images/GV/photo-3.png", "/images/GV/photo-4.png", "/images/GV/photo-5.png"],
   },
+  {
+    title: "Hôtel Taleva – Site vitrine",
+    description:
+    "Création d’un site vitrine responsive pour l’Hôtel Taleva, conçu pour présenter ses informations clés et faciliter la prise de contact. Le design épuré et adaptable à tous les supports garantit une navigation fluide et professionnelle.",
+    repository: "https://github.com/gestalkana/",
+    image: "/images/WB/W1.png",
+    screenshots: ["/images/WB/W1.png", "/images/WB/W2.png", "/images/WB/W3.png", "/images/WB/W4.png", "/images/WB/W5.png", "/images/WB/W6.png"],
+  },
 ];
 
 const Projets = () => {
